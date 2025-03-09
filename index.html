@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="heading">
+            Task Tracker
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Start writing and enter to create task">
+        </div>
+        <div class="taskBox">
+            
+        </div>
+    </main>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function(e){
+    e.preventDefault()
+    const input=document.querySelector("input")
+    const taskBox=document.querySelector(".taskBox")
+    console.log(input, taskBox);
+    
+})
+</script>
+</html>
