@@ -13,6 +13,7 @@
         </div>
         <div class="input">
             <input type="text" placeholder="Start writing and enter to create task">
+            <button id="button">Add</button>
         </div>
         <div class="taskBox">
             
@@ -22,16 +23,35 @@
 <script>
 document.addEventListener("DOMContentLoaded", function(e){
     e.preventDefault()
+    const button=document.querySelector("#button")
     const input=document.querySelector("input")
     const taskBox=document.querySelector(".taskBox")
-    // console.log(input, taskBox);
-    function create(){
-        let div=document.createElement("div")
-        let checkBos=document.createElement("checkbox")
-        let p=document.createElement("p")
-        let but=document.createElement("button")
-        but.innerText=`Remove`
+
+    function createElement(taskText){
+        const li=document.createElement("li")
+        li.innerHTML=`
+        <span>${taskText}</span>
+        <button class="delete-btn">❌</button>
+        `;
+        taskBox.appendChild(li)
+
+        li.addEventListener("click", function(){
+            li.style.backgroundColor='blue'
+        })
+
+        li.querySelector('.delete-btn').addEventListener("click",()=>{
+            li.remove()
+        })
     }
+
+    button.addEventListener("click", function(){
+        function addTAsk(){
+            const taskText = input.value.trim();
+            if (!taskText) return alert('Please enter a task!');
+        }
+        createElement(input.value)
+        input.value = ''; // Clear input
+    })
 })
 </script>
 </html>
